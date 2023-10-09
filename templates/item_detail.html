@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}More Info on Item{% endblock title %}
+{% block content %}
+<div class="item-entry">
+    <h2>{{ object.title}}</h2>
+    <article>
+        <p>offered by {{object.seller }} | {{object.date}} </p>
+        <img src="{{ item.photo.url}}" alt="{{item.title}}" class="art-img">
+        <p>{{ object.description | linebreaks}}</p>
+        <p>Price : {{ object.price}}</p>
+    </article>
+</div>
+<p><a href="{% url 'item_edit' item.pk}">Edit</a> |
+    <a href="{url 'item_delete item.pk}">Delete</a>
+</p>
+<p>Back to <a href="{% url 'item_list' %}">Items</a> </p>
+{% endblock content %}
